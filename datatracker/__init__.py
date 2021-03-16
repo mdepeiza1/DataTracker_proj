@@ -17,6 +17,10 @@ def create_app():
 
     from . import sample
     app.register_blueprint(sample.bp)
+
+    from . import videogames
+    app.register_blueprint(videogames.bp)  # added later
+
     # app.add_url_rule('/', endpoint='index')
 
     @app.route('/hello')

@@ -1,3 +1,7 @@
+import json
+import requests
+
+
 class VideoGames:
     def __init__(self, _id, rank, name, platform, year, genre, publisher, naSales, euSales, jpSales, otherSales,
                  globalSales, __v):
@@ -20,3 +24,10 @@ class VideoGames:
         return VideoGames(obj['_id'], obj['rank'], obj['platform'], obj['year'], obj['genre'], obj['publisher'],
                           obj['naSales'], obj['euSales'], obj['jpSales'], obj['otherSales'], obj['globalSales'],
                           obj['__v'])
+
+
+#response = requests.get('https://api.dccresource.com/api/games')
+
+#json_data_dict = json.loads(response)
+
+#videogames = VideoGames.video_games_decoder(json_data_dict)
