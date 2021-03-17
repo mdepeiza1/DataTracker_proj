@@ -27,7 +27,11 @@ class VideoGames:
                           obj['__v'])
 
 
+
+#response = requests.get('https://api.dccresource.com/api/games')
 response = requests.get('https://api.dccresource.com/api/games')
+
+#json_data_dict = json.loads(response)
 
 videogames = json.loads(response.content, object_hook=lambda d: SimpleNamespace(**d))
 
