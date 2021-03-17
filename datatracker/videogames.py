@@ -62,8 +62,8 @@ def SearchName():
                     else:
                         xlabels.append(videogame.platform)
                         ylabels.append(videogame.globalSales)
-                xs = html.unescape(xlabels)
-                ys = html.unescape(ylabels)
-                return render_template('videogames/SearchResults.html', page_title=game_title, xs=xs, ys=ys)
+            xs = html.unescape(xlabels)
+            ys = html.unescape(ylabels)
+            return render_template('videogames/SearchResults.html', page_title=game_title, xs=xs, ys=ys)
     else:
         return render_template('videogames/Search.html')
