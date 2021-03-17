@@ -67,3 +67,34 @@ def SearchName():
             return render_template('videogames/SearchResults.html', page_title=game_title, xs=xs, ys=ys)
     else:
         return render_template('videogames/Search.html')
+
+@bp.route('/Evaluation', methods=['GET'])
+def Evaluation():
+    #videogames = VideoGames.objects.all()
+    xlabels = []
+    ylabels = []
+    for videogame in videogames:
+        if videogame.genre + " NA Sales" in xlabels:
+            indexOfGenreAndnaSales = xlabels.index(videogame.genre + " NA Sales")
+            ylabels[indexOfGenreAndnaSales] += videogame.naSales
+        elif videogame.genre + " EU Sales" in xlabels:
+            indexOfGenreAndeuSales = xlabels.index(videogame.genre + " EU Sales")
+            ylabels[indexOfGenreAndeuSales] += videogame.euSales
+        elif videogame.genre + " JP Sales" in xlabels:
+            indexOfGenreAndjpSales = xlabels.index(videogame.genre + " JP Sales")
+            ylabels[indexOfGenreAndjpSales] += videogame.jpSales
+        elif videogame.genre + " Other Sales" in xlabels:
+            indexOfGenreAndotherSales = xlabels.index(videogame.genre + " Other Sales")
+            ylabels[indexOfGenreAndotherSales] += videogame.otherSales
+        else:
+            xlabels.append(videogame.genre + " NA Sales")
+            xlabels.append(videogame.genre + " EU Sales")
+            xlabels.append(videogame.genre + " JP Sales")
+            xlabels.append(videogame.genre + " Other Sales")
+            ylabels.append(videogame.naSales)
+            ylabels.append(videogame.euSales)
+            ylabels.append(videogame.jpSales)
+            ylabels.append(videogame.otherSales)
+    xs = html.unescape(xlabels)
+    ys = html.unescape(ylabels)
+    return render_template('videogames/Evaluation.html', xs=xs, ys=ys)
