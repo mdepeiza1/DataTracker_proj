@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 
- {% block header %}{% endblock %}
+ {% block header %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+{% endblock %}
 
     {% block content %}
 <canvas id="myChart" width="400" height="400"></canvas>
@@ -10,10 +12,10 @@ var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ['Blue'],
+        labels: {{ xs }},
         datasets: [{
             label: 'Global Sales in Millions',
-            data: ['12'],
+            data: {{ ys }},
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
