@@ -1,18 +1,16 @@
 {% extends 'base.html' %}
 
  {% block header %}
-<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
-{% endblock %}
 
+{% endblock %}
     {% block content %}
 <canvas id="myChart" width="400" height="400"></canvas>
 <script>
-
 var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: {{ xs }},
+        labels: {{ xs | safe }},
         datasets: [{
             label: 'Global Sales in Millions',
             data: {{ ys }},
