@@ -40,4 +40,30 @@ def PublisherPerConsole():
             ylabels.append(videogame.globalSales)
     xs = html.unescape(xlabels)
     ys = html.unescape(ylabels)
-    return render_template(f'videogames/PublisherPerConsole.html', xs=xs, ys=ys)
+    return render_template('videogames/PublisherPerConsole.html', xs=xs, ys=ys)
+
+@bp.route('/Search',methods=['GET','POST'])
+def SearchName():
+    if request.method == 'POST':
+        game_title=request.form['title']
+        error = None
+        xlabels = []
+        ylabels = []
+        if not game_title:
+            error = 'You must enter a name'
+        if error is not None:
+            flash(error)
+        else:
+            for videogame in videogames:
+                if videogame.name == game_title:
+                    if videogame.platform in xlabels:
+                        indexOfPlatform = xlabels.index(videogame.platform)
+                        ylabels[indexOfPlatform] += videogame.globalSales
+                    else:
+                        xlabels.append(videogame.platform)
+                        ylabels.append(videogame.globalSales)
+                xs = html.unescape(xlabels)
+                ys = html.unescape(ylabels)
+                return render_template('videogames/SearchResults.html', page_title=game_title, xs=xs, ys=ys)
+    else:
+        return render_template('videogames/Search.html')
