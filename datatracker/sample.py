@@ -12,7 +12,7 @@ def test():
 def index():
     message = "This text is coming from the 'sample.py' module, not the html file!"
     phrase = "Python is cool!"
-    return render_template('sample/index.html', message=message, word=phrase)
+    return render_template('sample/Index.html', message=message, word=phrase)
 
 
 @bp.route('/postform', methods=('GET', 'POST'))
