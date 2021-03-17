@@ -1,5 +1,6 @@
 import json
 import requests
+from types import SimpleNamespace
 
 
 class VideoGames:
@@ -26,8 +27,13 @@ class VideoGames:
                           obj['__v'])
 
 
-#response = requests.get('https://api.dccresource.com/api/games')
+response = requests.get('https://api.dccresource.com/api/games')
 
-#json_data_dict = json.loads(response)
+videogames = json.loads(response.content, object_hook=lambda d: SimpleNamespace(**d))
 
-#videogames = VideoGames.video_games_decoder(json_data_dict)
+
+###videogames = VideoGames.video_games_decoder(json_data_dict)
+
+##Used this to verify that Get request works properly
+###for videogame in videogames:
+###    print(videogame.name)
