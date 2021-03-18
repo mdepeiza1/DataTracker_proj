@@ -107,8 +107,8 @@ def Evaluation():
 
 @bp.route('/Index')
 def Index0():
-    return render_template('videogames/Index.html')
+    return render_template('videogames/index.html')
 
 @bp.route('/')
 def Index1():
-    return render_template('videogames/Index.html')
+    return render_template('videogames/index.html')
