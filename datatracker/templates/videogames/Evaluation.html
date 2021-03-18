@@ -4,15 +4,34 @@
 
 {% endblock %}
     {% block content %}
-<canvas id="myChart" width="400" height="400"></canvas>
+<div class="row">
+    <div class="col-md-4">
+        <canvas id="pieChart" width="100" height="100"></canvas>
+    </div>
+    <div class="col-md-4">
+        <form method="post">
+            <input type="radio" id="global" name="region"  value="global">
+            <label for="global">Global</label><br>
+            <input type="radio" id="na" name="region"  value="na">
+            <label for="na">North America</label><br>
+            <input type="radio" id="eu" name="region"  value="eu">
+            <label for="eu">Europe</label><br>
+            <input type="radio" id="jp" name="region"  value="jp">
+            <label for="jp">Japan</label><br>
+            <input type="radio" id="other" name="region"  value="other">
+            <label for="other">Other Regions</label><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</div>
 <script>
-var ctx = document.getElementById('myChart').getContext('2d');
-var myChart = new Chart(ctx, {
-    type: 'bar',
+var ctx = document.getElementById('pieChart').getContext('2d');
+var pieChart = new Chart(ctx, {
+    type: 'pie',
     data: {
-        labels: {{ xs | safe }},
+        labels: {{ xs|safe }},
         datasets: [{
-            label: 'Global Sales In Millions',
+            label: 'Sales In Millions',
             data: {{ ys }},
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
@@ -80,26 +99,9 @@ var myChart = new Chart(ctx, {
                 'rgba(153, 101, 255, 0.2)',
                 'rgba(255, 135, 100, 0.2)'
             ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
+            hoverOffset: 4
         }]
     },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }]
-        }
-    }
 });
 </script>
 {% endblock %}
