@@ -54,8 +54,17 @@ def SearchName():
         games = []
         if not game_title:
             error = 'You must enter a name'
+        for videogame in videogames:
+            if game_title == videogame.name:
+                errorGameTitle = False
+                break
+            else:
+                errorGameTitle = True
+        if errorGameTitle == True:
+            error = 'That game is not in the database'
         if error is not None:
             flash(error)
+            return render_template('videogames/Search.html', error=error)
         else:
             for videogame in videogames:
                 if videogame.name == game_title:
