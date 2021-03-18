@@ -4,4 +4,17 @@
 <h2>test</h2>
 {% endblock %}
 
-    {% block content %}{% endblock %}
+    {% block content %}
+<div id="carousel" class="carousel carousel-dark slide carousel-fade" data-bs-ride="carousel">
+  <div class="carousel-inner">
+
+    <div class="carousel-item active">
+      <img src="{{url_for('static', filename='Images/kamil-s-v48ltAEM1As-unsplash.jpg')}}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="{{url_for('static', filename='Images/sean-stone-dkb3wApu5XQ-unsplash.jpg')}}" class="d-block w-100" alt="...">
+    </div>
+  </div>
+
+</div>
+{% endblock %}
