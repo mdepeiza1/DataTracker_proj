@@ -6,17 +6,31 @@
 
 {% block content %}
 <div>
-    <p>Rank: {{video_game.rank}}</p>
+    <p>Rank: {% for game in games %}
+        {{ game.platform }}: {{ game.rank }}
+        {% endfor %}</p>
     <p>Name: {{video_game.name}}</p>
-    <p>Platform: {{video_game.platform}}</p>
+    <p>Platform: {% for game in games %}
+        {{ game.platform }}
+        {% endfor %}</p>
     <p>Year: {{video_game.year}}</p>
     <p>Genre: {{video_game.genre}}</p>
     <p>Publisher: {{video_game.publisher}}</p>
-    <p>North America Sales: {{video_game.naSales}} million</p>
-    <p>Europe Sales: {{video_game.euSales}} million</p>
-    <p>Japan Sales: {{video_game.jpSales}} million</p>
-    <p>Other Sales: {{video_game.otherSales}} million</p>
-    <p>Global Sales: {{video_game.globalSales}} million</p>
+    <p>North America Sales: {% for game in games %}
+        {{ game.platform }}: {{ game.naSales }} million
+        {% endfor %} </p>
+    <p>Europe Sales: {% for game in games %}
+        {{ game.platform }}: {{ game.euSales }} million
+        {% endfor %}</p>
+    <p>Japan Sales: {% for game in games %}
+        {{ game.platform }}: {{ game.jpSales }} million
+        {% endfor %}</p>
+    <p>Other Sales: {% for game in games %}
+        {{ game.platform }}: {{ game.otherSales }} million
+        {% endfor %}</p>
+    <p>Global Sales: {% for game in games %}
+        {{ game.platform }}: {{ game.globalSales }} million
+        {% endfor %}</p>
 
 </div>
 

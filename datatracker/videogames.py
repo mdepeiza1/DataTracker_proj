@@ -51,6 +51,7 @@ def SearchName():
         error = None
         xlabels = []
         ylabels = []
+        games = []
         if not game_title:
             error = 'You must enter a name'
         if error is not None:
@@ -58,6 +59,7 @@ def SearchName():
         else:
             for videogame in videogames:
                 if videogame.name == game_title:
+                    games.append(videogame)
                     if videogame.platform in xlabels:
                         indexOfPlatform = xlabels.index(videogame.platform)
                         ylabels[indexOfPlatform] += videogame.globalSales
@@ -65,10 +67,10 @@ def SearchName():
                         xlabels.append(videogame.platform)
                         ylabels.append(videogame.globalSales)
 
-                    xs = html.unescape(xlabels)
-                    ys = html.unescape(ylabels)
-                    return render_template('videogames/SearchResults.html', page_title=game_title, xs=xs, ys=ys,
-                                           video_game=videogame)
+            xs = html.unescape(xlabels)
+            ys = html.unescape(ylabels)
+            return render_template('videogames/SearchResults.html', page_title=game_title, xs=xs, ys=ys,
+                                           video_game=videogame, games=games)
     else:
         return render_template('videogames/Search.html')
 
