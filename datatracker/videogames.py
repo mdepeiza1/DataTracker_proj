@@ -51,13 +51,24 @@ def SearchName():
         error = None
         xlabels = []
         ylabels = []
+        games = []
         if not game_title:
             error = 'You must enter a name'
+        for videogame in videogames:
+            if game_title == videogame.name:
+                errorGameTitle = False
+                break
+            else:
+                errorGameTitle = True
+        if errorGameTitle == True:
+            error = 'That game is not in the database'
         if error is not None:
             flash(error)
+            return render_template('videogames/Search.html', error=error)
         else:
             for videogame in videogames:
                 if videogame.name == game_title:
+                    games.append(videogame)
                     if videogame.platform in xlabels:
                         indexOfPlatform = xlabels.index(videogame.platform)
                         ylabels[indexOfPlatform] += videogame.globalSales
@@ -65,12 +76,13 @@ def SearchName():
                         xlabels.append(videogame.platform)
                         ylabels.append(videogame.globalSales)
 
-                    xs = html.unescape(xlabels)
-                    ys = html.unescape(ylabels)
-                    return render_template('videogames/SearchResults.html', page_title=game_title, xs=xs, ys=ys,
-                                           video_game=videogame)
+            xs = html.unescape(xlabels)
+            ys = html.unescape(ylabels)
+            return render_template('videogames/SearchResults.html', page_title=game_title, xs=xs, ys=ys,
+                                           video_game=games[0], games=games)
     else:
         return render_template('videogames/Search.html')
+
 
 @bp.route('/Evaluation', methods=['GET','POST'])
 def GenreByRegion():
@@ -151,3 +163,13 @@ def GenreByRegion():
         xs = html.unescape(xlabels)
         ys = html.unescape(ylabels)
         return render_template('videogames/Evaluation.html', xs=xs, ys=ys, region="global")
+
+
+@bp.route('/Index')
+def Index0():
+    return render_template('videogames/index.html')
+
+@bp.route('/')
+def Index1():
+    return render_template('videogames/index.html')
+
