@@ -102,3 +102,11 @@ def Evaluation():
     xs = html.unescape(xlabels)
     ys = html.unescape(ylabels)
     return render_template('videogames/Evaluation.html', xs=xs, ys=ys)
+
+@bp.route('/Index')
+def Index0():
+    return render_template('videogames/index.html')
+
+@bp.route('/')
+def Index1():
+    return render_template('videogames/index.html')
