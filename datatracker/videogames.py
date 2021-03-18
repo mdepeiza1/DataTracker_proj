@@ -26,25 +26,28 @@ def Investment():
     return render_template('videogames/Investment.html', xs=xs, ys=ys)
 
 
-@bp.route('/PublisherPerConsole', methods=['GET'])
+@bp.route('/PublisherPerConsole', methods=['GET','POST'])
 def PublisherPerConsole():
-    #videogames = VideoGames.objects.all()
-    xlabels = []
-    ylabels = []
-    cutoffsales = int(5)
-    for videogame in videogames:
-        if videogame.globalSales is not None:
-            if videogame.globalSales >= cutoffsales:
-                if videogame.publisher + " " + videogame.platform in xlabels:
-                    indexOfPublisherAndPlatform = xlabels.index(videogame.publisher + " " + videogame.platform)
-                    ylabels[indexOfPublisherAndPlatform] += videogame.globalSales
+    if request.method == 'POST':
+        platform = request.form['platform']
+        #videogames = VideoGames.objects.all()
+        x_labels = []
+        y_labels = []
+        for videogame in videogames:
+            if videogame.platform == platform:
+                if videogame.publisher in x_labels:
+                    index_pub = x_labels.index(videogame.publisher)
+                    y_labels[index_pub] += videogame.globalSales
                 else:
-                    xlabels.append(videogame.publisher + " " + videogame.platform)
-                    ylabels.append(videogame.globalSales)
-    xs = html.unescape(xlabels)
-    ys = html.unescape(ylabels)
-    return render_template('videogames/PublisherPerConsole.html', xs=xs, ys=ys)
+                    x_labels.append(videogame.publisher)
+                    y_labels.append(videogame.globalSales)
 
+        xs = html.unescape(x_labels)
+        ys = html.unescape(y_labels)
+        return render_template('videogames/PublisherPerConsole.html', xs=xs, ys=ys)
+
+    else:
+        return render_template('videogames/PublisherPerConsole.html')
 
 
 @bp.route('/Search',methods=['GET','POST'])

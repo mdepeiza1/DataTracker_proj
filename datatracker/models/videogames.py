@@ -37,7 +37,3 @@ videogames = json.loads(response.content, object_hook=lambda d: SimpleNamespace(
 
 
 ###videogames = VideoGames.video_games_decoder(json_data_dict)
-
-##Used this to verify that Get request works properly
-###for videogame in videogames:
-###    print(videogame.name)
