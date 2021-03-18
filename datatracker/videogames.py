@@ -139,7 +139,7 @@ def GenreByRegion():
             return render_template('videogames/Evaluation.html', xs=xs, ys=ys, region="jp")
         elif region == "other":
             for videogame in videogames:
-                if videogame.genre + " North America Sales" in xlabels:
+                if videogame.genre + " Other Sales" in xlabels:
                     index_other = xlabels.index(videogame.genre + " Other Sales")
                     ylabels[index_other] += videogame.otherSales
                 else:
