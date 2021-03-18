@@ -70,7 +70,7 @@ def SearchName():
             xs = html.unescape(xlabels)
             ys = html.unescape(ylabels)
             return render_template('videogames/SearchResults.html', page_title=game_title, xs=xs, ys=ys,
-                                           video_game=videogame, games=games)
+                                           video_game=games[0], games=games)
     else:
         return render_template('videogames/Search.html')
 
