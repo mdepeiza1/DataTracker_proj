@@ -61,7 +61,7 @@ def SearchName():
         if not game_title:
             error = 'You must enter a name'
         for videogame in videogames:
-            if game_title == videogame.name:
+            if game_title.upper() == videogame.name.upper():
                 errorGameTitle = False
                 break
             else:
@@ -73,7 +73,8 @@ def SearchName():
             return render_template('videogames/Search.html', error=error)
         else:
             for videogame in videogames:
-                if videogame.name == game_title:
+                if videogame.name.upper() == game_title.upper():
+                    videogame_title = videogame.name
                     games.append(videogame)
                     if videogame.platform in xlabels:
                         indexOfPlatform = xlabels.index(videogame.platform)
@@ -84,7 +85,7 @@ def SearchName():
 
             xs = html.unescape(xlabels)
             ys = html.unescape(ylabels)
-            return render_template('videogames/SearchResults.html', page_title=game_title, xs=xs, ys=ys,
+            return render_template('videogames/SearchResults.html', page_title=videogame_title, xs=xs, ys=ys,
                                            video_game=games[0], games=games)
     else:
         return render_template('videogames/Search.html')
