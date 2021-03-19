@@ -47,7 +47,7 @@ def PublisherPerConsole():
         return render_template('videogames/PublisherPerConsole.html', xs=xs, ys=ys)
 
     else:
-        return render_template('videogames/PublisherPerConsole.html')
+        return render_template('videogames/PublisherPerConsole.html',xs = html.unescape([]), ys = html.unescape([]))
 
 
 @bp.route('/Search',methods=['GET','POST'])
