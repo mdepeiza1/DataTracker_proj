@@ -4,48 +4,57 @@
 
 {% endblock %}
     {% block content %}
+<br>
+<br>
 <div class="row">
-    <div class="col-md-4">
-        <canvas id="myChart" width="100" height="100"></canvas>
+    <div class="col-md-1"></div>
+    <div class="col-md-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">MOST SUCCESSFUL PUBLISHER BY CONSOLE</h5>
+                <p class="card-text">Who are the most successful publishers by console?</p>
+                <form method="post">
+                    <select class="form-select" name="platform" aria-label="Default select example">
+                        <option selected>Select a console</option>
+                        <option value = "DS">DS</option>
+                        <option value = "X360">X360</option>
+                        <option value = "PS3">PS3</option>
+                        <option value = "Wii">Wii</option>
+                        <option value = "GBA">GBA</option>
+                        <option value = "PS2">PS2</option>
+                        <option value = "PS">PS</option>
+                        <option value = "SNES">SNES</option>
+                        <option value = "NES">NES</option>
+                        <option value = "GB">GB</option>
+                        <option value = "3DS">3DS</option>
+                        <option value = "PS4">PS4</option>
+                        <option value = "N64">N64</option>
+                        <option value = "XB">XB</option>
+                        <option value = "PC">PC</option>
+                        <option value = "XOne">XOne</option>
+                        <option value = "WiiU">WiiU</option>
+                        <option value = "2600">2600</option>
+                        <option value = "GC">GC</option>
+                        <option value = "PSP">PSP</option>
+                        <option value = "GEN">GEN</option>
+                        <option value = "DC">DC</option>
+                        <option value = "PSV">PSV</option>
+                        <option value = "SAT">SAT</option>
+                        <option value = "SCD">SCD</option>
+                        <option value = "WS">WS</option>
+                        <option value = "NG">NG</option>
+                        <option value = "TG16">TG16</option>
+                        <option value = "3DO">3DO</option>
+                        <option value = "GG">GG</option>
+                        <option value = "PCFX">PCFX</option>
+                    </select>
+                    <button type="submit" class="btn btn-success">Submit</button>
+                </form>
+            </div>
+        </div>
     </div>
     <div class="col-md-4">
-        <form method="post">
-            <select class="form-select" name="platform" aria-label="Default select example">
-                <option selected>Select a console</option>
-                <option value = "DS">DS</option>
-                <option value = "X360">X360</option>
-                <option value = "PS3">PS3</option>
-                <option value = "Wii">Wii</option>
-                <option value = "GBA">GBA</option>
-                <option value = "PS2">PS2</option>
-                <option value = "PS">PS</option>
-                <option value = "SNES">SNES</option>
-                <option value = "NES">NES</option>
-                <option value = "GB">GB</option>
-                <option value = "3DS">3DS</option>
-                <option value = "PS4">PS4</option>
-                <option value = "N64">N64</option>
-                <option value = "XB">XB</option>
-                <option value = "PC">PC</option>
-                <option value = "XOne">XOne</option>
-                <option value = "WiiU">WiiU</option>
-                <option value = "2600">2600</option>
-                <option value = "GC">GC</option>
-                <option value = "PSP">PSP</option>
-                <option value = "GEN">GEN</option>
-                <option value = "DC">DC</option>
-                <option value = "PSV">PSV</option>
-                <option value = "SAT">SAT</option>
-                <option value = "SCD">SCD</option>
-                <option value = "WS">WS</option>
-                <option value = "NG">NG</option>
-                <option value = "TG16">TG16</option>
-                <option value = "3DO">3DO</option>
-                <option value = "GG">GG</option>
-                <option value = "PCFX">PCFX</option>
-            </select>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+        <canvas id="myChart" width="100" height="100"></canvas>
     </div>
 </div>
 <script>

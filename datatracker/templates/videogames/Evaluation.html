@@ -4,24 +4,32 @@
 
 {% endblock %}
     {% block content %}
+<br>
+<br>
 <div class="row">
-    <div class="col-md-4">
-        <canvas id="pieChart" width="100" height="100"></canvas>
+    <div class="col-md-1"></div>
+    <div class="col-md-3">
+        <div class="card">
+            <div class="card-body">
+                <form method="post">
+                    <input type="radio" id="global" name="region"  value="global">
+                    <label for="global">Global</label><br>
+                    <input type="radio" id="na" name="region"  value="na">
+                    <label for="na">North America</label><br>
+                    <input type="radio" id="eu" name="region"  value="eu">
+                    <label for="eu">Europe</label><br>
+                    <input type="radio" id="jp" name="region"  value="jp">
+                    <label for="jp">Japan</label><br>
+                    <input type="radio" id="other" name="region"  value="other">
+                    <label for="other">Other Regions</label><br>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+
     </div>
     <div class="col-md-4">
-        <form method="post">
-            <input type="radio" id="global" name="region"  value="global">
-            <label for="global">Global</label><br>
-            <input type="radio" id="na" name="region"  value="na">
-            <label for="na">North America</label><br>
-            <input type="radio" id="eu" name="region"  value="eu">
-            <label for="eu">Europe</label><br>
-            <input type="radio" id="jp" name="region"  value="jp">
-            <label for="jp">Japan</label><br>
-            <input type="radio" id="other" name="region"  value="other">
-            <label for="other">Other Regions</label><br>
-            <input type="submit" value="Submit">
-        </form>
+        <canvas id="pieChart" width="100" height="100"></canvas>
     </div>
 </div>
 <script>

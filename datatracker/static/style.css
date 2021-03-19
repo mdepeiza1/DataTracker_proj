@@ -1,0 +1,30 @@
+html {
+    box-sizing: border-box;
+    background-color:  #C8C8C8;
+
+}
+.navbar {
+    font-family: Lucida Console;
+    background-color: #0D2818;
+}
+.navbar-brand {
+    font-family: Lucida Console;
+}
+
+body {
+    background-color:  #C8C8C8;
+    color: ivory;
+    font-family: Lucida Console;
+}
+.card-body {
+    background-color: #0D2818;
+    color: #ivory;
+
+}
+.card-footer{
+    background-color: #0C120C;
+
+}
+.card-link{
+    color:#28A745;
+}
