@@ -6,35 +6,41 @@
 
 {% block content %}
 <div>
-    <p>Rank: {% for game in games %}
-        {{ game.platform }}: {{ game.rank }}
-        {% endfor %}</p>
-    <p>Name: {{video_game.name}}</p>
-    <p>Platform: {% for game in games %}
-        {{ game.platform }}
-        {% endfor %}</p>
-    <p>Year: {{video_game.year}}</p>
-    <p>Genre: {{video_game.genre}}</p>
-    <p>Publisher: {{video_game.publisher}}</p>
-    <p>North America Sales: {% for game in games %}
-        {{ game.platform }}: {{ game.naSales }} million
-        {% endfor %} </p>
-    <p>Europe Sales: {% for game in games %}
-        {{ game.platform }}: {{ game.euSales }} million
-        {% endfor %}</p>
-    <p>Japan Sales: {% for game in games %}
-        {{ game.platform }}: {{ game.jpSales }} million
-        {% endfor %}</p>
-    <p>Other Sales: {% for game in games %}
-        {{ game.platform }}: {{ game.otherSales }} million
-        {% endfor %}</p>
-    <p>Global Sales: {% for game in games %}
-        {{ game.platform }}: {{ game.globalSales }} million
-        {% endfor %}</p>
-
+    <div class="row">
+        <div class="col-md-4">
+            <p>Rank: {% for game in games %}
+                {{ game.platform }}: {{ game.rank }}
+                {% endfor %}</p>
+            <p>Name: {{video_game.name}}</p>
+            <p>Platform: {% for game in games %}
+                {{ game.platform }}
+                {% endfor %}</p>
+            <p>Year: {{video_game.year}}</p>
+            <p>Genre: {{video_game.genre}}</p>
+            <p>Publisher: {{video_game.publisher}}</p>
+            <p>North America Sales: {% for game in games %}
+                {{ game.platform }}: {{ game.naSales }} million
+                {% endfor %} </p>
+            <p>Europe Sales: {% for game in games %}
+                {{ game.platform }}: {{ game.euSales }} million
+                {% endfor %}</p>
+            <p>Japan Sales: {% for game in games %}
+                {{ game.platform }}: {{ game.jpSales }} million
+                {% endfor %}</p>
+            <p>Other Sales: {% for game in games %}
+                {{ game.platform }}: {{ game.otherSales }} million
+                {% endfor %}</p>
+            <p>Global Sales: {% for game in games %}
+                {{ game.platform }}: {{ game.globalSales }} million
+                {% endfor %}</p>
+        </div>
+        <div class="col-md-4">
+            <canvas id="myChart" width="100" height="100"></canvas>
+        </div>
+    </div>
 </div>
 
-<canvas id="myChart" width="400" height="400"></canvas>
+
 <script>
 var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
