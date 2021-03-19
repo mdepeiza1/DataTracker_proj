@@ -5,21 +5,23 @@
 {% endblock %}
 
     {% block content %}
-
-<div id="carousel" class="carousel carousel-dark slide carousel-fade" data-ride="carousel">
+<br>
+<br>
+<div class="container-lg">
+  <div id="carousel" class="carousel carousel-dark slide carousel-fade" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
       <img src="{{url_for('static', filename='Images/kamil-s-v48ltAEM1As-unsplash.jpg')}}" class="d-block w-100" alt="...">
       <div class="carousel-caption">
         <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">MOST POPULAR GENRE BY REGION</h5>
-          <p class="card-text">What type of game is most popular in each Region?</p>
+          <div class="card-body">
+            <h5 class="card-title">BEST CONSOLE BY NUMBER OF GAMES</h5>
+            <p class="card-text">What is the best video game console to invest in based on the number of game copies sold globally over the past seven years?</p>
+          </div>
+          <div class="card-footer">
+            <a href="/Investment" class="card-link">See the Chart</a>
+          </div>
         </div>
-        <div class="card-footer">
-          <a href="/Evaluation" class="card-link">See the Chart</a>
-        </div>
-      </div>
       </div>
     </div>
     <div class="carousel-item">
@@ -51,9 +53,6 @@
       </div>
     </div>
   </div>
-
-
-
   <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="sr-only">Previous</span>
@@ -63,4 +62,6 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
+</div>
+
 {% endblock %}
